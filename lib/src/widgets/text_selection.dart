@@ -82,7 +82,9 @@ class EditorTextSelectionOverlay {
     // our listener being created
     // we won't know the status unless there is forced update
     // i.e. occasionally no paste
-    clipboardStatus.update();
+    if (!kIsWeb) {
+      clipboardStatus.update();
+    }
   }
 
   TextEditingValue value;
